@@ -1,0 +1,5 @@
+config.ini
+.vscode/launch.json
+__pycache__
+pyrogramReddit/telegram-bot-for-reddit.session
+pyrogramReddit/tg_bot_for_reddit.session
