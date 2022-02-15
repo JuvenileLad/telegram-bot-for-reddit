@@ -49,7 +49,7 @@ async def tg_post(updated_subs):
         preview = True if 'preview' in sub_dict.keys() else False
         media_metadata = True if 'media_metadata' in sub_dict.keys() else False
         
-        caption = f"[{sub_dict['subreddit_name_prefixed']}](https://www.reddit.com/{sub_dict['permalink']}): **{sub_dict['title']}**"
+        caption = f"[{sub_dict['subreddit_name_prefixed']}](https://www.reddit.com{sub_dict['permalink']}): **{sub_dict['title']}**"
         caption += f"{sub_dict['selftext_html']}" if sub_dict['selftext'] else f"\n"
         
         if len(sub_dict['selftext']) > 4096:
@@ -59,10 +59,10 @@ async def tg_post(updated_subs):
                 await bot.send_message(channel_id, caption, disable_web_page_preview=True)
             elif preview:
                 image = sub_dict['preview']['images'][0]['source']['url']
-                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption)
+                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption, disable_web_page_preview=True)
             elif media_metadata:
                 for md in sub_dict['media_metadata']:
                     image = sub_dict['media_metadata'][md]['s']['u']
-                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption)
+                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption, disable_web_page_preview=True)
         except:
             traceback.print_exc()
