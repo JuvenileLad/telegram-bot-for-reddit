@@ -59,10 +59,10 @@ async def tg_post(updated_subs):
                 await bot.send_message(channel_id, caption, disable_web_page_preview=True)
             elif preview:
                 image = sub_dict['preview']['images'][0]['source']['url']
-                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption, disable_web_page_preview=True)
+                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption)
             elif media_metadata:
                 for md in sub_dict['media_metadata']:
                     image = sub_dict['media_metadata'][md]['s']['u']
-                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption, disable_web_page_preview=True)
+                await bot.send_photo(chat_id=channel_id, photo=image, caption=caption)
         except:
             traceback.print_exc()
