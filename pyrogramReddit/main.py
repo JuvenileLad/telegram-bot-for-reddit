@@ -23,7 +23,7 @@ async def help(_, cb: callback_query):
     text += "/list - to get a list of all the subreddits\n\n"
     text += "/ping - to check ping\n\n"
     text += "/id - to get channel ID. Use this command in the channel.\n\n"
-    await bot.send_message(cb.from_user.id, text, disable_web_page_preview = True)
+    await bot.send_message(cb.chat.id, text, disable_web_page_preview = True)
 
 @bot.on_message(filters.command("ping"))
 async def ping(_, message):
