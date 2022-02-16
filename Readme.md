@@ -23,7 +23,6 @@ Made using <a href='https://docs.pyrogram.org'>pyrogram</a>, this bot can store 
 		<ol>
 			<li> <a href="#preq">PREQUISITES</a><li> <a href="#config">CONFIGURATION</a>
 		</ol>
-	<li> <a href="#issues">ISSUES</a>
 	<li> <a href="#contribute">CONTRIBUTE</a>
 </ol>
 
@@ -81,17 +80,18 @@ pip3 install -U -r requirements.txt
 	<br>
 	
 ### <div id="config">Configuration</div>
-*do not add quotes(" ") symbol in any value*
-	
+copy the contents of `example_config.ini` to a new file `config.ini` and then edit the following values:
+*(do not add quotes(" ") symbol in any value)*
+- `bot_owner` is the telegram username without the @ symbol
 - in `session_name` enter whatever you want as session name in telegram
-- in `bot_name` enter the username of the telegram bot.
-- enter the MongoDB URL in `url`. Can also be set to localhost.
+- in `bot_name` enter the username of the telegram bot
+- enter the MongoDB URL in `url`. Can also be set to localhost
 - set `delay` as the number of seconds to wait between checking for new submissions
 - `maxusers` is the max number of users that will be able to use the bot
 -  `limitPerUser` is max number of subreddits that a user will be able to add
--  `userException` are telegram user IDs which will granted exception from `limitPerUser`. Each value has to be separated by a space.
+-  `userException` are telegram user IDs which will granted exception from `limitPerUser`. Each value has to be separated by a space
 - most other variables are self explanatory
-- the `config.ini` file already consists of sample values, you just have to replace them.
+- the `config.ini` file already consists of sample values, you just have to replace them
 
 #### Now run the bot by using:
 	python3 -m pyrogramReddit
