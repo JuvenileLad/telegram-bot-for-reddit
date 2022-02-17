@@ -1,5 +1,5 @@
 from dis import dis
-from ..client import myColl, reddit, bot
+from ..client import myColl, reddit, bot, BOTOWNER
 import traceback
 
 async def Check_sub(subreddit):
@@ -65,4 +65,5 @@ async def tg_post(updated_subs):
                     image = sub_dict['media_metadata'][md]['s']['u']
                 await bot.send_photo(chat_id=channel_id, photo=image, caption=caption)
         except:
-            traceback.print_exc()
+            e = traceback.format_exc()
+            await bot.send_message(BOTOWNER, f"@{BOTOWNER}\n`{e}`")
