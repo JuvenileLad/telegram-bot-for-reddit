@@ -64,6 +64,11 @@ async def tg_post(updated_subs):
                 for md in sub_dict['media_metadata']:
                     image = sub_dict['media_metadata'][md]['s']['u']
                 await bot.send_photo(chat_id=channel_id, photo=image, caption=caption)
-        except:
-            e = traceback.format_exc()
-            await bot.send_message(BOTOWNER, f"@{BOTOWNER}\n`{e}`")
+        except Exception as e:
+            source = e.__traceback__.tb_frame.f_code.co_filename
+            source = source.split("/")[-1]
+            lineN = e.__traceback__.tb_lineno
+            eType = type(e).__name__
+            print(f"ERROR:\n{source} : {lineN}\n{eType} : {e}")
+            ErrLog = f"**#Error**\n`{source}` **|** `{lineN}`\n**{eType}** : `{e}`"
+            await bot.send_message(BOTOWNER, ErrLog)
